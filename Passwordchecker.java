@@ -8,6 +8,12 @@ public class Passwordchecker {
         int len = password.length();
         if (PasswordValid(password)) {
             System.out.println("The password is Valid");
+            // Correct password
+            if (password == "Software27") {
+                System.out.println("Welcome to the Server");
+            } else {
+                System.out.println("The password is not correct");
+            }
         } else {
             System.out.println("The password is not Valid");
         }
@@ -24,15 +30,15 @@ public class Passwordchecker {
             return false;
         } else {
             char charactercheck;
-            int count = 1;
+            int numcount = 0;
             for (int i = 0; i < len; i++) {
                 charactercheck = password.charAt(i);
                 if (!Character.isLetterOrDigit(charactercheck)) {
                     return false;
                 }
                 if (Character.isDigit(charactercheck)) {
-                    count++;
-                    if (count < 1) {
+                    numcount = numcount + 1;
+                    if (numcount < 2) {
                         System.out.println("You need to input at least 2 digits");
                         return false;
                     }
@@ -42,16 +48,8 @@ public class Passwordchecker {
         }
         return true;
     }
-    public static void PasswordCorrect(String password){
-        // Correct password
-        if (password == "Software27") {
-            System.out.println("Welcome to the Server");
-        }
-        else {
-            System.out.println("The password is Incorrect");
-        }
-        }
-    }
+}
+
         //    System.out.println("Continue with Password Check");
         //    }
         //}
