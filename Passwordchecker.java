@@ -1,5 +1,5 @@
+package PasswordChecker;
 import java.util.*;
-
 public class Passwordchecker {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
