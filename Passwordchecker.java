@@ -8,13 +8,13 @@ public class Passwordchecker {
         String username = input1.next();
         System.out.println("Think of a password");
         System.out.println("The password must be 8-15 characters");
-        System.out.println("The password must have at least 2 digits");
+        System.out.println("The password must have at least 2 digits (0-9)");
         System.out.println("The password must contain at least 1 UpperCase Letter (A-Z)");
         System.out.println("The password must contain at least 1 LowerCase Letter (a-z)");
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter the Password: ");
         String password = input.next();
-        while (PasswordValid(password) != true) {
+        while (!PasswordValid(password)) {
             System.out.println("Invalid password");
             System.out.println("Please enter a valid password:");
             input = new Scanner(System.in);
@@ -43,7 +43,7 @@ public class Passwordchecker {
                     newpasswordinput = input3.next();
                     passwordcount--;
                     if (passwordcount == 0) {
-                        System.out.println("You are out of attempts, Closing Server down");
+                        System.out.println("You are out of attempts, Closing Server down!");
                     }
                 }
                 if (Objects.equals(newpasswordinput,password)) {
@@ -53,9 +53,6 @@ public class Passwordchecker {
             }
         }
     }
-
-
-
     public static boolean PasswordValid(String password) {
         //Password must match
         // 8 characters minimum 15 characters maximum
