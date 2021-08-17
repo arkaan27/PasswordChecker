@@ -75,20 +75,20 @@ public class Passwordchecker {
                 if (Character.isDigit(charactercheck)) {
                     digitcount++;
                 }
-                if (Character.isLowerCase(charactercheck)) {
+                else if (Character.isLowerCase(charactercheck)) {
                     LC_count++;
                 }
-                if (Character.isUpperCase(charactercheck)) {
+                else if (Character.isUpperCase(charactercheck)) {
                     UC_count++;
-                        }
                 }
+            }
             if (digitcount < 2) {
                 return false;
                 }
-            if (LC_count < 1) {
+            else if (LC_count < 1) {
                 return false;
                 }
-            if (UC_count < 1) {
+            else if (UC_count < 1) {
                 return false;
                 }
             return true;
