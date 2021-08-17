@@ -5,11 +5,10 @@ public class Passwordchecker {
         Scanner input = new Scanner(System.in);
         System.out.print(" Please enter a Password: ");
         String password = input.next();
-        int len = password.length();
         if (PasswordValid(password)) {
             System.out.println("The password is Valid");
             // Correct password
-            if (password == "Software27") {
+            if (password.equals("Software27")) {
                 System.out.println("Welcome to the Server");
             } else {
                 System.out.println("The password is not correct");
@@ -30,23 +29,22 @@ public class Passwordchecker {
             return false;
         } else {
             char charactercheck;
-            int numcount = 0;
+            int digitcount = 0;
             for (int i = 0; i < len; i++) {
                 charactercheck = password.charAt(i);
                 if (!Character.isLetterOrDigit(charactercheck)) {
                     return false;
                 }
                 if (Character.isDigit(charactercheck)) {
-                    numcount = numcount + 1;
-                    if (numcount < 2) {
-                        System.out.println("You need to input at least 2 digits");
-                        return false;
-                    }
-
+                    digitcount++;
                 }
             }
+            if (digitcount < 2) {
+                System.out.println("You need at least 2 digits");
+                return false;
+            }
+            return true;
         }
-        return true;
     }
 }
 
