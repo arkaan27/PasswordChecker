@@ -48,7 +48,7 @@ public class Passwordchecker {
                 System.out.println("Invalid password");
                 System.out.println("Please enter a valid password:");
                 input = new Scanner(System.in);
-                password = input.next();
+                password2 = input.next();
             }
             if (PasswordValid(password2)) {
                 System.out.println("Valid Password");
