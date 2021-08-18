@@ -26,17 +26,17 @@ public class Passwordchecker {
             System.out.println("Please Enter Your Username: ");
             Scanner input2 = new Scanner(System.in);
             String Loginusername = input2.next();
-            while (!Objects.equals(Loginusername, username)) {
+            while (!username.equals(Loginusername)) {
                 System.out.println("Incorrect Username, Please enter your Username again: ");
                 input2 = new Scanner(System.in);
                 Loginusername = input2.next();
             }
-            if (Objects.equals(Loginusername, username)) {
+            if (username.equals(Loginusername)) {
                 System.out.println("Username Correct, Please Enter the Password: ");
                 Scanner input3 = new Scanner(System.in);
                 String newpasswordinput = input3.next();
                 int passwordcount = 4;
-                while (!Objects.equals(newpasswordinput,password) && passwordcount > 0) {
+                while (!password.equals(newpasswordinput) && passwordcount > 0) {
                     System.out.println("Incorrect Password, Please try Entering password again:");
                     System.out.println("You have" + " " + passwordcount + " " + "attempts left ");
                     input3 = new Scanner(System.in);
@@ -46,7 +46,7 @@ public class Passwordchecker {
                         System.out.println("You are out of attempts, Closing Server down!");
                     }
                 }
-                if (Objects.equals(newpasswordinput,password)) {
+                if (password.equals(newpasswordinput)) {
                     System.out.println("Password Correct!");
                     System.out.println("Welcome to the Server!");
                 }
