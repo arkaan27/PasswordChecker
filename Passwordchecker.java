@@ -18,15 +18,15 @@ public class Passwordchecker {
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter the Password: ");
         String password = input.next();
-        while (!PasswordValid(password)) {
+        while (!passwordValid(password)) {
             System.out.println("Invalid password");
             System.out.println("Please enter a valid password:");
             input = new Scanner(System.in);
             password = input.next();
         }
-        if (PasswordValid(password)) {
+        if (passwordValid(password)) {
             System.out.println("The password is Valid");
-            PasswordStrength(password);
+            passwordStrength(password);
         }
         Map credentials = new HashMap();
         credentials.put(username, password);
@@ -46,15 +46,15 @@ public class Passwordchecker {
             Scanner input4 = new Scanner(System.in);
             System.out.println("Please enter the Password: ");
             String password2 = input4.next();
-            while (!PasswordValid(password2)) {
+            while (!passwordValid(password2)) {
                 System.out.println("Invalid password");
                 System.out.println("Please enter a valid password:");
                 input = new Scanner(System.in);
                 password2 = input.next();
             }
-            if (PasswordValid(password2)) {
+            if (passwordValid(password2)) {
                 System.out.println("Valid Password");
-                PasswordStrength(password2);
+                passwordStrength(password2);
                 credentials.put(username2, password2);
                 System.out.println("Do you want to create another User? ");
                 n = new Scanner(System.in);
@@ -95,7 +95,7 @@ public class Passwordchecker {
 
         }
     }
-    public static boolean PasswordValid (String password){
+    public static boolean passwordValid(String password){
         //Password must match
         // 8 characters minimum 15 characters maximum
         // 1 Uppercase and 1 Lower case
@@ -132,16 +132,17 @@ public class Passwordchecker {
             return true;
         }
     }
-    public static void PasswordStrength(String password){
+    public static void passwordStrength(String password){
+        //Password Strength Calculator
         int passwordstrength= 0;
         int digitcount=0;
         int UC_count= 0;
         for (int i= 0; i<password.length();i++){
             if (Character.isDigit(password.charAt(i))) {
-                digitcount++;
+                digitcount++; //Counting the number of digits in password
             }
             else if (Character.isUpperCase(password.charAt(i))) {
-                UC_count++;
+                UC_count++; //Counting the number of UpperCase Letters in passwords
             }
         }
         if (password.length()>= 10 ) {
