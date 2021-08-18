@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package PasswordChecker;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -25,13 +26,14 @@ public class Passwordchecker {
         }
         if (PasswordValid(password)) {
             System.out.println("The password is Valid");
+            PasswordStrength(password);
         }
         Map credentials = new HashMap();
         credentials.put(username, password);
         System.out.println("Do you want to create New User? ");
         Scanner n = new Scanner(System.in);
         boolean bn = n.nextBoolean();
-        while (bn == true) {
+        while (bn) {
             System.out.println("Lets create another Username");
             System.out.println("Please type in your Username");
             Scanner input3 = new Scanner(System.in);
@@ -52,13 +54,14 @@ public class Passwordchecker {
             }
             if (PasswordValid(password2)) {
                 System.out.println("Valid Password");
+                PasswordStrength(password2);
                 credentials.put(username2, password2);
                 System.out.println("Do you want to create another User? ");
                 n = new Scanner(System.in);
                 bn = n.nextBoolean();
             }
         }
-        if (bn == false) {
+        if (!bn) {
             System.out.println("Lets try login to the Server");
             System.out.println("Please Enter Your Username: ");
             Scanner input5 = new Scanner(System.in);
@@ -127,6 +130,41 @@ public class Passwordchecker {
                 return false;
             }
             return true;
+        }
+    }
+    public static void PasswordStrength(String password){
+        int passwordstrength= 0;
+        int digitcount=0;
+        int UC_count= 0;
+        for (int i= 0; i<password.length();i++){
+            if (Character.isDigit(password.charAt(i))) {
+                digitcount++;
+            }
+            else if (Character.isUpperCase(password.charAt(i))) {
+                UC_count++;
+            }
+        }
+        if (password.length()>= 10 ) {
+            passwordstrength++;
+        }
+        if (digitcount> 2 ) {
+            passwordstrength++;
+        }
+        if (UC_count==1) {
+            passwordstrength++;
+        }
+        if (UC_count>1){
+            passwordstrength=passwordstrength+2;
+        }
+        switch(passwordstrength){
+            case 1: System.out.println("Password Strength: Weak");
+                break;
+            case 2: System.out.println("Password Strength: Medium");
+                break;
+            case 3: System.out.println("Password Strength: Medium");
+                break;
+            case 4: System.out.println("Password Strength: Strong");
+                break;
         }
     }
 }
